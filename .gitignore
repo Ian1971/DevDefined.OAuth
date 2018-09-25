@@ -13,3 +13,8 @@ $SSH_ENV
 
 /src/GlobalAssemblyInfo.cs
 .DS_Store
+
+/src/.vs/DevDefined.OAuth/v15/Server/sqlite3/db.lock
+/src/.vs/DevDefined.OAuth/v15/Server/sqlite3/storage.ide
+/src/.vs/DevDefined.OAuth/v15/Server/sqlite3/storage.ide-shm
+/src/.vs/DevDefined.OAuth/v15/Server/sqlite3/storage.ide-wal

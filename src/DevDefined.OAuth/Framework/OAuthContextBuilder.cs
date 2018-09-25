@@ -77,34 +77,34 @@ namespace DevDefined.OAuth.Framework
 			       	};
 		}
 
-		public virtual IOAuthContext FromHttpRequest(HttpRequest request)
-		{
-			return FromHttpRequest(new HttpRequestWrapper(request));
-		}
+		//public virtual IOAuthContext FromHttpRequest(HttpRequest request)
+		//{
+		//	return FromHttpRequest(new HttpRequestWrapper(request));
+		//}
 
-		public virtual IOAuthContext FromHttpRequest(HttpRequestBase request)
-		{
-			var context = new OAuthContext
-			              	{
-			              		RawUri = CleanUri(request.Url),
-			              		Cookies = CollectCookies(request),
-			              		Headers = GetCleanedNameValueCollection(request.Headers),
-			              		RequestMethod = request.HttpMethod,
-			              		FormEncodedParameters = GetCleanedNameValueCollection(request.Form),
-			              		QueryParameters = GetCleanedNameValueCollection(request.QueryString),
-			              	};
+		//public virtual IOAuthContext FromHttpRequest(HttpRequestBase request)
+		//{
+		//	var context = new OAuthContext
+		//	              	{
+		//	              		RawUri = CleanUri(request.Url),
+		//	              		Cookies = CollectCookies(request),
+		//	              		Headers = GetCleanedNameValueCollection(request.Headers),
+		//	              		RequestMethod = request.HttpMethod,
+		//	              		FormEncodedParameters = GetCleanedNameValueCollection(request.Form),
+		//	              		QueryParameters = GetCleanedNameValueCollection(request.QueryString),
+		//	              	};
 
-			if (request.InputStream.Length > 0)
-			{
-				context.RawContent = new byte[request.InputStream.Length];
-				request.InputStream.Read(context.RawContent, 0, context.RawContent.Length);
-				request.InputStream.Position = 0;
-			}
+		//	if (request.InputStream.Length > 0)
+		//	{
+		//		context.RawContent = new byte[request.InputStream.Length];
+		//		request.InputStream.Read(context.RawContent, 0, context.RawContent.Length);
+		//		request.InputStream.Position = 0;
+		//	}
 
-			ParseAuthorizationHeader(request.Headers, context);
+		//	ParseAuthorizationHeader(request.Headers, context);
 
-			return context;
-		}
+		//	return context;
+		//}
 
 		public virtual IOAuthContext FromWebRequest(HttpWebRequest request, Stream rawBody)
 		{
@@ -168,10 +168,10 @@ namespace DevDefined.OAuth.Framework
 			return CollectCookiesFromHeaderString(request.Headers[HttpRequestHeader.Cookie]);
 		}
 
-		protected virtual NameValueCollection CollectCookies(HttpRequestBase request)
-		{
-			return CollectCookiesFromHeaderString(request.Headers["Set-Cookie"]);
-		}
+		//protected virtual NameValueCollection CollectCookies(HttpRequestBase request)
+		//{
+		//	return CollectCookiesFromHeaderString(request.Headers["Set-Cookie"]);
+		//}
 
         protected virtual NameValueCollection CollectCookiesFromHeaderString(string cookieHeader)
 		{
